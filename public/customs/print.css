@@ -1,0 +1,100 @@
+
+.head{
+    text-align: center;
+    margin-top: -10px;
+}
+
+.print-btn .btn{
+    float: right;
+    background-color: #3F3E91;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    border-right:1px solid #fff;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: end;
+    font-weight: bold;
+    margin-top: -20px;
+  }
+
+  .flex-container .analysis{
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .flex-container .form {
+    border: 1px solid #333;
+    margin: 5px 0px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+  .filled-customer{
+      margin-left: 50px;
+  }
+
+.flex-box {
+    display: flex;
+    justify-content: start;
+    font-weight: bold;
+    margin-top: -20px;
+}
+
+.flex-box ol li{
+    line-height: 1.7;
+    margin-left: 40px;
+}
+
+.flex-box ul li{
+    list-style-type: none;
+    line-height: 1.7;
+}
+
+.flex-box table{
+    margin-bottom: 10px;
+}
+
+.flex-box table tr td{
+    padding-left: 70px;
+    line-height: 1.7;
+}
+
+.sign{
+    margin-top: 10px;
+}
+
+/* gc_analysis */
+
+.gc-head{
+    text-align: center;
+}
+
+.flex-container .gc-form {
+    border: 1px solid #333;
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.gc-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+.gc-table td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+
+
+

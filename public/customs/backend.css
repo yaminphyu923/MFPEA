@@ -1,0 +1,113 @@
+.btn-theme{
+    background-color: #5050B2;
+    color: #fff;
+}
+
+.bg-primary{
+    background-color: #5050B2 !important;
+    color: #fff !important;
+}
+
+.form-control{
+    appearance: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.dashboard{
+    background-color: #5050B2;
+    color: #fff;
+}
+
+.dashboard a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.dashboard:hover{
+    filter: contrast(130%) drop-shadow(2px 2px 2px #333);
+}
+.sidebar .nav .nav-item.active .nav-link
+{
+    color: #fff !important;
+}
+
+.login{
+    height: 80vh;
+    align-items: center;
+
+}
+
+.login .card{
+    background-color:#5050B2;
+    color: #fff;
+    box-shadow: 3px 3px 3px #333;
+}
+
+.login .card a{
+    color: #fff;
+}
+
+.login .card a:hover{
+    color: #cad0f7;
+}
+
+/* Cutomer */
+.card-button{
+    background-color:#C4C9EF;
+    border-radius: 15px;
+    color: #333;
+}
+
+
+.thead-color{
+    background-color:#5050B2;
+    color: #fff;
+    padding: 10px;
+}
+
+/* select2 */
+.select2-container--default .select2-selection--single .select2-selection__rendered
+{
+    line-height: 13px;
+}
+
+.select2-container .select2-selection--single{
+    height: 43px !important;
+}
+
+.modal-open .select2-container--open {
+    z-index: 999999 !important;
+    width:100% !important;
+}
+
+
+/* Member Certificate */
+
+.certificate-card, .stock-card{
+    box-shadow: 2px 2px 2px #333,-2px -2px 1px #bbb;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.lineHeight{
+    line-height: 38px;
+}
+
+/* Finance Add Button */
+.submit-button{
+    background-color:#cad0f7;
+    border-radius: 25px;
+    color: #333;
+}
+
+.submit-button:hover{
+    background-color:#01631a !important;
+    border-radius: 25px;
+    color: #fff;
+}

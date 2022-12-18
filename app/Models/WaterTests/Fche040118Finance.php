@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Models\WaterTests;
+
+use App\Models\WaterTests\Fche040118;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Fche040118Finance extends Model
+{
+    use HasFactory;
+
+    protected $table = "fche040118_finances";
+    protected $fillable = [
+        "fche040118_id",
+        "voucher",
+        "amount",
+        "date",
+        "remark",
+        "test_type",
+        "voucher_2",
+        "amount_2",
+        "date_2",
+        "remark_2",
+        "test_type_2",
+        "status"
+    ];
+
+    public function fche040118()
+    {
+        return $this->belongsTo(Fche040118::class,'fche040118_id','id');
+    }
+}

@@ -1,0 +1,25 @@
+.login-card{
+    /* margin-top: 100px; */
+    box-shadow: 2px 2px 2px #333;
+}
+
+.login-card .card-header{
+    background-color: #5050B2;
+    color: #fff;
+}
+
+.btn-fill{
+    background-color: #5050B2;
+    color: #fff;
+}
+
+.btn-fill:hover{
+    background-color: #cad0f7;
+    color: #333;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px #333;
+}
+
+.btn-hide{
+    display: none;
+}
