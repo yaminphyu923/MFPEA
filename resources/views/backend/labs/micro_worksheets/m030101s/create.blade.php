@@ -106,7 +106,7 @@
                                         <label for="" class="col-sm-4">Reference Method</label>
 
                                         <div class="col-sm-8">
-                                            <textarea name="reference_method" id="reference_method" cols="30" rows="1" class="form-control">AOAC Official Method 991.14 Ciliform and Escherichia coli Counts in Foods, Dry Rehydratable Film (Petrifilm TM E.coli Count Plate TM and Petrifilm TM Coliform Count Plate TM) methods with the modification according to ISO standards</textarea>
+                                            <textarea name="reference_method" id="reference_method" cols="30" rows="1" class="form-control">AOAC Official Method 991.14 Coliform and Escherichia coli Counts in Foods, Dry Rehydratable Film (Petrifilm TM E.coli Count Plate TM and Petrifilm TM Coliform Count Plate TM) methods with the modification according to ISO standards</textarea>
                                         </div>
                                     </div>
                                 </div>

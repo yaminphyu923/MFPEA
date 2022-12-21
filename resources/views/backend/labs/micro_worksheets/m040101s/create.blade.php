@@ -106,7 +106,7 @@
                                         <label for="" class="col-sm-4">Reference Method</label>
 
                                         <div class="col-sm-8">
-                                            <textarea name="reference_method" id="reference_method" cols="30" rows="1" class="form-control">AOAC Official Method 2003.07 Enumeration of Staphylococcus anreus in Selected Types of Processed and Prepared Foods 3M TM Petrifilm TM Staph Express Count Plate Method.</textarea>
+                                            <textarea name="reference_method" id="reference_method" cols="30" rows="1" class="form-control">AOAC Official Method 2003.07 Enumeration of Staphylococcus aureus in Selected Types of Processed and Prepared Foods 3M TM Petrifilm TM Staph Express Count Plate Method.</textarea>
                                         </div>
                                     </div>
                                 </div>
