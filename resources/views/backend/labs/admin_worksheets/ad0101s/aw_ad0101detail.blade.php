@@ -41,7 +41,7 @@
             <div class="col-sm-4">
                 <ol>
                     <li>Company's Name</li>
-                    {{-- <li>Customer's Name</li> --}}
+                    <li>Customer's Name</li>
                     <li>Address</li>
                     <li>Contact Person</li>
                     <li>Sample Name/Code</li>
@@ -58,7 +58,7 @@
             <div class="col-sm-8">
                 <ul class="list-unstyled">
                     <li>: {{ $ad->company_name != null ? $ad->company_name : '' }}</li>
-                    {{-- <li>: {{ $ad->customer != null ? $ad->customer->name : '' }}</li> --}}
+                    <li>: {{ $ad->customer_id != null ? $ad->customer_id : '' }}</li>
                     <li>: {{ $ad->address != null ? $ad->address : '' }}</li>
                     <li>: {{ $ad->contact_person != null ? $ad->contact_person : '' }}</li>
                     <li>: {{ $ad->sample_name_code != null ? $ad->sample_name_code : '-' }}</li>

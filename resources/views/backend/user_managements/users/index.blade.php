@@ -10,10 +10,12 @@
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="mt-2"><b>Users</b></h4>
                         <div class="justify-content-end">
-                            <a href="{{ route('users.create') }}">
-                                <button type="button" class="btn btn-md btn-primary"><i class="fas fa-plus-circle"></i>
-                                    <b>Create User</b></button>
-                            </a>
+                            @if ($count < $limit_user)
+                                <a href="{{ route('users.create') }}">
+                                    <button type="button" class="btn btn-md btn-primary"><i class="fas fa-plus-circle"></i>
+                                        <b>Create User</b></button>
+                                </a>
+                            @endif
                         </div>
 
 
@@ -46,9 +48,17 @@
                                         {{-- <label class="badge badge-success">{{ $user->roles }}</label> --}}
                                     </td>
                                     <td class="d-flex justify-content-start">
+
                                         <a href="{{ route('users.show', $user->id) }}"><button type="button"
                                                 class="btn btn-sm btn-primary py-2"><i class="fas fa-eye"></i>
                                                 Detail</button></a>
+                                        {{-- <p>{{ auth()->user()->getRoleNames()[0] }}</p> --}}
+                                        @if (auth()->user()->getRoleNames()[0] == 'Superadmin')
+                                            <a href="{{ route('increase_count', $user->id) }}"><button type="button"
+                                                    class="btn btn-sm btn-info py-2"><i class="fas fa-sort-numeric-up"></i>
+                                                    Increase Count</button></a>
+                                        @endif
+
 
                                         <a href="{{ route('users.edit', $user->id) }}"><button type="button"
                                                 class="btn btn-sm btn-warning py-2"><i class="fas fa-edit"></i>
@@ -60,6 +70,17 @@
                                             <button type="submit" class="btn btn-sm btn-danger py-2 delete"
                                                 id="{{ $user->id }}"><i class="fas fa-trash"></i> Delete</button>
                                         </form>
+                                        {{-- @if (auth()->user()->getRoleNames()[0] == 'Admin') --}}
+                                        <a href="{{ route('change_password_page', $user->id) }}"><button type="button"
+                                                class="btn btn-sm btn-info py-2"><i class="fas fa-key"></i>
+                                                Change Password</button></a>
+                                        {{-- @endif --}}
+
+                                        @if ($user->id == auth()->user()->id)
+                                            <a href="{{ route('password.request') }}"><button type="button"
+                                                    class="btn btn-sm btn-secondary py-2"><i class="fas fa-unlock-alt"></i>
+                                                    Reset Password</button></a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

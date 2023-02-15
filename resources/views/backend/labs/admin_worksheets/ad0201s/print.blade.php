@@ -35,12 +35,18 @@
                 <td style="width:300px;">1.Job Number</td>
                 <td>: {{ $ad->job_number != null ? $ad->job_number : '' }}</td>
             </tr>
+
             <tr>
-                <td>2.Sample Name/Code</td>
+                <td style="width:300px;">2.Customer Name</td>
+                <td>: {{ $ad->customer_id != null ? $ad->customer_id : '' }}</td>
+            </tr>
+
+            <tr>
+                <td>3.Sample Name/Code</td>
                 <td>: {{ $ad->sample_name_code != null ? $ad->sample_name_code : '' }}</td>
             </tr>
             <tr>
-                <td>3.Sample Description</td>
+                <td>4.Sample Description</td>
                 <td>: {{ $ad->sample_description != null ? $ad->sample_description : '' }}</td>
             </tr>
 

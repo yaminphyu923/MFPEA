@@ -104,13 +104,23 @@
                 </table>
             </div>
 
-            {{-- <div class="col-sm-12 mt-3">
-                <span>Remark: ND = Not Detected</span>
-            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Calculation</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
 
-            <div class="col-sm-12 mt-3">
-                <span>cfu= Colony Forming Unit</span>
-            </div> --}}
+                    <tbody>
+                        <tr>
+                            <td>{{ $m->calculation }}</td>
+                            <td>{{ $m->result }} cfu/g / cfu/ml</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <div class="col-sm-6 my-3">
                 <span>Analyzed by : <b>{{ $m->analyzed_by }}</b></span>
             </div>
@@ -133,11 +143,12 @@
                     @if ($m->analyzed_sign != null)
                         <img src="{{ asset('photos/mw_m010101s/analyzed_sign/' . $m->analyzed_sign) }}" alt=""
                             style="width:100px;">
-
-                        <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->analyzed_date)) }}</b></h5>
                     @else
                         <span>____</span>
                     @endif
+
+                    <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->analyzed_date)) }}</b></h5>
+
                 </span>
 
             </div>
@@ -148,10 +159,11 @@
                     @if ($m->checked_sign != null)
                         <img src="{{ asset('photos/mw_m010101s/checked_sign/' . $m->checked_sign) }}" alt=""
                             style="width:100px;">
-                        <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->checked_date)) }}</b></h5>
                     @else
                         <span>____</span>
                     @endif
+                    <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->checked_date)) }}</b></h5>
+
                 </span>
 
             </div>

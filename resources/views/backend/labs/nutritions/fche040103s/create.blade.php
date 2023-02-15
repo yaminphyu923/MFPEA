@@ -420,7 +420,7 @@
 
                                         <div class="col-sm-9">
                                             <input type="text" name="nitrogen_cal" class="form-control"
-                                                value="Nitrogen %=((T-B)*N*14.007/wt of sample*1000)*1000">
+                                                value="Nitrogen %=((T-B)*N*14.007/wt of sample*1000)*100">
                                         </div>
                                     </div>
                                 </div>

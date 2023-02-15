@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('micro_test_parameters', function (Blueprint $table) {
             $table->id();
-            $table->text('name')->fillable();
+            $table->text('name')->nullable();
             $table->timestamps();
         });
     }

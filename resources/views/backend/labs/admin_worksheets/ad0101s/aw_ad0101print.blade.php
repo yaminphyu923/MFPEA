@@ -74,43 +74,48 @@
             </tr>
 
             <tr>
-                <td>2.Address</td>
+                <td style="width:300px;">2.Customer's Name</td>
+                <td>: {{ $ad->customer_id != null ? $ad->customer_id : '' }}</td>
+            </tr>
+
+            <tr>
+                <td>3.Address</td>
                 <td>: {{ $ad->address != null ? $ad->address : '' }}</td>
             </tr>
             <tr>
-                <td>3.Contact Person</td>
+                <td>4.Contact Person</td>
                 <td>: {{ $ad->contact_person != null ? $ad->contact_person : '' }}</td>
             </tr>
             <tr>
-                <td>4.Sample Name/Code</td>
+                <td>5.Sample Name/Code</td>
                 <td>: {{ $ad->sample_name_code != null ? $ad->sample_name_code : '-' }}</td>
             </tr>
             <tr>
-                <td>5.Description of Sample</td>
+                <td>6.Description of Sample</td>
                 <td>: {{ $ad->sample_description != null ? $ad->sample_description : '-' }}</td>
             </tr>
             <tr>
-                <td>6.Packaging Type</td>
+                <td>7.Packaging Type</td>
                 <td>: {{ $ad->package_type != null ? $ad->package_type : '' }}</td>
             </tr>
             <tr>
-                <td>7.Type of Request</td>
+                <td>8.Type of Request</td>
                 <td>: {{ $ad->request_type != null ? $ad->request_type : '' }}</td>
             </tr>
             <tr>
-                <td>8.Sampling Procedure</td>
+                <td>9.Sampling Procedure</td>
                 <td>: {{ $ad->sampling_procedure != null ? $ad->sampling_procedure : '' }}</td>
             </tr>
             <tr>
-                <td>9.Decision Rule</td>
+                <td>10.Decision Rule</td>
                 <td>: {{ $ad->decision_rule != null ? $ad->decision_rule : '' }}</td>
             </tr>
             <tr>
-                <td>10.Type of test and method</td>
+                <td>11.Type of test and method</td>
                 <td>: {{ $ad->test_method != null ? $ad->test_method : '' }}</td>
             </tr>
             <tr>
-                <td>11.Sample Quantity</td>
+                <td>12.Sample Quantity</td>
                 <td>: {{ $ad->sample_quantity != null ? $ad->sample_quantity : '' }}</td>
             </tr>
             {{-- <tr>

@@ -146,10 +146,11 @@
             : @if ($m->analyzed_sign != null)
                 <img src="{{ asset('photos/mw_m040101s/analyzed_sign/' . $m->analyzed_sign) }}" alt=""
                     style="width:100px;height:44px;">
-                <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->analyzed_date)) }}</b></h5>
             @else
                 <span>____</span>
             @endif
+            <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->analyzed_date)) }}</b></h5>
+
         </div>
 
         <div style="flex-grow: 2">
@@ -167,10 +168,11 @@
             : @if ($m->checked_sign != null)
                 <img src="{{ asset('photos/mw_m040101s/checked_sign/' . $m->checked_sign) }}" alt=""
                     style="width:100px;height:44px;">
-                <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->checked_date)) }}</b></h5>
             @else
                 <span>____</span>
             @endif
+            <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->checked_date)) }}</b></h5>
+
         </div>
     </div>
 @endsection

@@ -306,7 +306,7 @@
 
                                         <div class="col-sm-8">
                                             <input type="text" name="sd" class="form-control"
-                                                value="Self-Dilution ( )">
+                                                value="Sub-Dilution ( )">
                                         </div>
                                     </div>
                                 </div>

@@ -207,7 +207,7 @@
 
                                         <div class="col-sm-9">
                                             <input type="text" name="w2" class="form-control"
-                                                value="Weight of sample (W2)">
+                                                value="Weight of sample (Residue)">
                                         </div>
                                     </div>
                                 </div>
@@ -238,7 +238,7 @@
 
                                         <div class="col-sm-9">
                                             <input type="text" name="moisture_cal" class="form-control"
-                                                value="Moisture(%)=((w1-w2)/w2)*100">
+                                                value="Moisture(%)=(W1-W2/W1)*100">
                                         </div>
                                     </div>
                                 </div>

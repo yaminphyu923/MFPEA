@@ -291,18 +291,20 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a href="{{ route('nutritions.index') }}" class="dropdown-item @yield('nutrition-active')">Nutrition Analysis
+                <a href="{{ route('nutritions.create') }}" class="dropdown-item @yield('nutrition-active')">Nutrition
+                    Analysis
                     Test Report</a>
-                <a href="{{ route('oils.index') }}" class="dropdown-item @yield('oil-active')">Oil Test Report</a>
-                <a href="{{ route('waters.index') }}" class="dropdown-item @yield('water-active')">Water Test Report</a>
-                <a href="{{ route('gcs.index') }}" class="dropdown-item @yield('gc-active')">GC Test Report</a>
-                <a href="{{ route('heavy_metals.index') }}" class="dropdown-item @yield('heavy_metal-active')">Heavy Metals and
+                <a href="{{ route('oils.create') }}" class="dropdown-item @yield('oil-active')">Oil Test Report</a>
+                <a href="{{ route('waters.create') }}" class="dropdown-item @yield('water-active')">Water Test Report</a>
+                <a href="{{ route('gcs.create') }}" class="dropdown-item @yield('gc-active')">GC Test Report</a>
+                <a href="{{ route('heavy_metals.create') }}" class="dropdown-item @yield('heavy_metal-active')">Heavy Metals
+                    and
                     Essential
                     Minerals Test Report</a>
-                <a href="" class="dropdown-item">Other Test Report</a>
+                <a href="#" class="dropdown-item">Other Test Report</a>
                 {{-- <a class="dropdown-item @yield('ad01341-active')"
                     href="{{ route('ad01341s.create') }}">FIDSL-Ad-06-03-01341/22</a>
-
+                    {{ route('others.create') }}
                 <a class="dropdown-item @yield('ad01087-active')"
                     href="{{ route('ad01087s.create') }}">FIDSL-Ad-06-03-01087/22</a>
 
@@ -328,14 +330,15 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a href="" class="dropdown-item">Swab Test Report</a>
-                <a href="" class="dropdown-item">Export Test Report</a>
-                <a href="" class="dropdown-item">Water/Juice/Swab Test/Air Test Report</a>
-                <a href="" class="dropdown-item">Other Sample Test Report</a>
-                <a href="" class="dropdown-item">Oil Test Report</a>
-                <a href="{{ route('micro_test_parameters.index') }}" class="dropdown-item @yield('micro-active')">Micro
-                    Report Test
-                    Parameter and Test Method</a>
+                <a href="{{ route('swabs.create') }}" class="dropdown-item @yield('swab-active')">Swab Test Report</a>
+                <a href="{{ route('exports.create') }}" class="dropdown-item @yield('export-active')">Export Test
+                    Report</a>
+                <a href="{{ route('wjsas.create') }}" class="dropdown-item @yield('wjsa-active')">Water/Juice/Swab
+                    Test/Air Test Report</a>
+                <a href="{{ route('other_samples.create') }}" class="dropdown-item @yield('other_sample-active')">Other Sample
+                    Test Report</a>
+                <a href="{{ route('sacs.create') }}" class="dropdown-item @yield('sac-active')">SAC
+                    Test Report</a>
                 {{-- <a class="dropdown-item @yield('ad01250-active')"
                     href="{{ route('ad01250s.create') }}">FIDSL-Ad-06-03-01250/22</a>
 

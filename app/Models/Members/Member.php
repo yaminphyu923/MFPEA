@@ -4,6 +4,7 @@ namespace App\Models\Members;
 
 use App\Models\Members\Category;
 use App\Models\Members\MemberType;
+use App\Models\Members\BusinessType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -39,6 +40,37 @@ class Member extends Model
         "nrc_myan",
         "business_reg_myan",
         "business_regdate_myan",
+        "name",
+        "father_name",
+        "birth_date",
+        "birth_place",
+        "nationality",
+        "edu",
+        "occupation",
+        "resident_no",
+        "resident_street",
+        "resident_township",
+        "resident_city",
+        "resident_state",
+        "postal_code",
+        "phone",
+        "company_name",
+        "registration_no_date",
+        "business_name",
+        "paid_capital",
+        "employee_no",
+        "designaion",
+        "office_no",
+        "office_street",
+        "office_ward",
+        "office_township",
+        "office_city",
+        "office_state",
+        "office_phone",
+        "viber",
+        "website",
+        "business_type_id",
+        "business_text"
     ];
 
     public function memberType(){
@@ -47,5 +79,9 @@ class Member extends Model
 
     public function category(){
         return $this->belongsTo(Category::class,'category_id','id');
+    }
+
+    public function businessType(){
+        return $this->belongsTo(BusinessType::class,'business_type_id','id');
     }
 }

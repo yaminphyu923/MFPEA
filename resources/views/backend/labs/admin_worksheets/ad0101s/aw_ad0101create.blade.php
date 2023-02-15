@@ -46,12 +46,13 @@
                                         <label for="" class="col-sm-4">Customer Name</label>
 
                                         <div class="col-sm-8">
-                                            <select name="customer_id" class="form-control myselect">
+                                            <input type="text" name="customer_id" class="form-control">
+                                            {{-- <select name="customer_id" class="form-control myselect">
                                                 <option>Select an option...</option>
                                                 @foreach ($customers as $customer)
                                                     <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                                                 @endforeach
-                                            </select>
+                                            </select> --}}
                                         </div>
                                     </div>
                                 </div>

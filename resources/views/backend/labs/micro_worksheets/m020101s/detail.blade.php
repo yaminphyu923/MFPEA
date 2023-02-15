@@ -101,6 +101,24 @@
                 </table>
             </div>
 
+            <div class="table-responsive">
+                <table class="gc-table table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Calculation</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>{{ $m->calculation }}</td>
+                            <td>{{ $m->result }} cfu/g / cfu/ml</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             {{-- <div class="col-sm-12 mt-3">
                 <span>Remark: ND = Not Detected</span>
             </div>
@@ -130,11 +148,12 @@
                     @if ($m->analyzed_sign != null)
                         <img src="{{ asset('photos/mw_m020101s/analyzed_sign/' . $m->analyzed_sign) }}" alt=""
                             style="width:100px;">
-
-                        <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->analyzed_date)) }}</b></h5>
                     @else
                         <span>____</span>
                     @endif
+
+                    <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->analyzed_date)) }}</b></h5>
+
                 </span>
 
             </div>
@@ -145,10 +164,11 @@
                     @if ($m->checked_sign != null)
                         <img src="{{ asset('photos/mw_m020101s/checked_sign/' . $m->checked_sign) }}" alt=""
                             style="width:100px;">
-                        <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->checked_date)) }}</b></h5>
                     @else
                         <span>____</span>
                     @endif
+                    <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($m->checked_date)) }}</b></h5>
+
                 </span>
 
             </div>

@@ -405,7 +405,7 @@
 
                                         <div class="col-sm-6">
                                             <input type="text" name="linoleic_18_2_para" class="form-control"
-                                                value="C 18:2 (Linoleic)">
+                                                value="C 18:2 (Linolenic)">
                                         </div>
                                     </div>
                                 </div>
@@ -440,7 +440,7 @@
 
                                         <div class="col-sm-6">
                                             <input type="text" name="linoleic_18_3_para" class="form-control"
-                                                value="C 18:3 (Linoleic)">
+                                                value="C 18:3 (Linolenic)">
                                         </div>
                                     </div>
                                 </div>

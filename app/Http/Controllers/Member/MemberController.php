@@ -14,6 +14,8 @@ use App\Models\Members\Category;
 use App\Models\Members\AnnualFee;
 use App\Models\Members\MemberType;
 use App\Http\Controllers\Controller;
+use App\Models\Members\BusinessType;
+use App\Models\Members\LimitMembers;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -40,17 +42,21 @@ class MemberController extends Controller
     {
         if($request->category_id && $request->category_id != "all"){
             $members = Member::where('category_id',$request->category_id)->get();
+            $limit = LimitMembers::first();
         }
         elseif($request->member_type_id && $request->member_type_id != "all"){
             $members = Member::where('member_type_id',$request->member_type_id)->get();
+            $limit = LimitMembers::first();
         }
         else{
             $members = Member::all();
+            $limit = LimitMembers::first();
         }
 
         $categories = Category::all();
         $member_types = MemberType::all();
-        return view('backend.members.index',compact('members','categories','member_types'));
+        $limit = LimitMembers::first();
+        return view('backend.members.index',compact('members','categories','member_types','limit'));
     }
 
     /**
@@ -62,7 +68,16 @@ class MemberController extends Controller
     {
         $member_types = MemberType::all();
         $categories = Category::all();
-        return view('backend.members.create',compact('member_types','categories'));
+        $business_types = BusinessType::all();
+        $members = Member::get();
+        $limit = LimitMembers::first();
+        if ($limit->limit_member >= count($members))
+        {
+            return view('backend.members.create',compact('member_types','categories','business_types','limit','members'));
+        }else{
+            return back();
+        }
+        // return view('backend.members.create',compact('member_types','categories','business_types','limit','members'));
     }
 
     /**
@@ -84,21 +99,58 @@ class MemberController extends Controller
                     $sql->photo = $filename;
                 }
 
+                $sql->name = $request->name;
+                $sql->father_name = $request->father_name;
+                $sql->birth_date = $request->birth_date;
+                $sql->birth_place = $request->birth_place;
+                $sql->nationality = $request->nationality;
+                $sql->nrc = $request->nrc;
+                $sql->edu = $request->edu;
+                $sql->occupation = $request->occupation;
+                $sql->resident_no = $request->resident_no;
+                $sql->resident_street = $request->resident_street;
+                $sql->resident_township = $request->resident_township;
+                $sql->resident_city = $request->resident_city;
+                $sql->resident_state = $request->resident_state;
+                $sql->postal_code = $request->postal_code;
+                $sql->phone = $request->phone;
+                $sql->member_id = $request->member_id;
+                $sql->member_type_id = $request->member_type_id;
+                $sql->company_name = $request->company_name;
+                $sql->registration_no_date = $request->registration_no_date;
+                $sql->business_name = $request->business_name;
+                $sql->business_no_date = $request->business_no_date;
+                $sql->paid_capital = $request->paid_capital;
+                $sql->employee_no = $request->employee_no;
                 $sql->contact_person = $request->contact_person;
+                $sql->designaion = $request->designaion;
+                $sql->office_no = $request->office_no;
+                $sql->office_street = $request->office_street;
+                $sql->office_ward = $request->office_ward;
+                $sql->office_township = $request->office_township;
+                $sql->office_city = $request->office_city;
+                $sql->office_state = $request->office_state;
+                $sql->office_phone = $request->office_phone;
+                $sql->fax = $request->fax;
+                $sql->viber = $request->viber;
+                $sql->website = $request->website;
+                $sql->business_type_id = $request->business_type_id;
+                $sql->business_text = $request->business_text;
+
+                // $sql->contact_person = $request->contact_person;
                 $sql->ms_no = $request->ms_no;
                 $sql->ms_date = $request->ms_date;
-                $sql->member_type_id = $request->member_type_id;
+                // $sql->member_type_id = $request->member_type_id;
                 $sql->category_id = $request->category_id;
-                $sql->nrc = $request->nrc;
+                //
                 $sql->business_reg = $request->business_reg;
                 $sql->business_regdate = $request->business_regdate;
                 $sql->company_name_address = $request->company_name_address;
                 $sql->product_item = $request->product_item;
-                $sql->phone_no = $request->phone_no;
-                $sql->fax = $request->fax;
+                // $sql->phone_no = $request->phone_no;
+                // $sql->fax = $request->fax;
                 $sql->email = $request->email;
                 $sql->entrance_fee = $request->entrance_fee;
-                $sql->status = $request->status;
                 $sql->name_address_myan = $request->name_address_myan;
                 $sql->ms_no_myan = $request->ms_no_myan;
                 $sql->ms_date_myan = $request->ms_date_myan;
@@ -107,6 +159,7 @@ class MemberController extends Controller
                 $sql->nrc_myan = $request->nrc_myan;
                 $sql->business_reg_myan = $request->business_reg_myan;
                 $sql->business_regdate_myan = $request->business_regdate_myan;
+                $sql->status = $request->status;
                 $sql->save();
                 if($sql)
                 {
@@ -132,7 +185,7 @@ class MemberController extends Controller
      */
     public function show($id)
     {
-        $member = Member::with('memberType','category')->find($id);
+        $member = Member::with('memberType','category','businessType')->find($id);
         $annual_fees = AnnualFee::where('member_id',$id)->get();
         return view('backend.members.detail',compact('member','annual_fees'));
     }
@@ -149,8 +202,9 @@ class MemberController extends Controller
         $member_types = MemberType::all();
         $categories = Category::all();
         $annual_fees = AnnualFee::where('member_id',$id)->paginate(12);
+        $business_types = BusinessType::all();
 
-        return view('backend.members.edit',compact('member','member_types','categories','annual_fees'));
+        return view('backend.members.edit',compact('member','member_types','categories','annual_fees','business_types'));
     }
 
     /**
@@ -181,32 +235,66 @@ class MemberController extends Controller
                 $sql->photo = $filename;
             }
 
-            $sql->contact_person = $request->contact_person;
-            $sql->ms_no = $request->ms_no;
-            $sql->ms_date = $request->ms_date;
-            $sql->member_type_id = $request->member_type_id;
-            $sql->category_id = $request->category_id;
-            $sql->nrc = $request->nrc;
-            $sql->business_reg = $request->business_reg;
-            $sql->business_regdate = $request->business_regdate;
-            $sql->company_name_address = $request->company_name_address;
-            $sql->product_item = $request->product_item;
-            $sql->phone_no = $request->phone_no;
-            $sql->fax = $request->fax;
-            $sql->email = $request->email;
-            $sql->entrance_fee = $request->entrance_fee;
-            // $sql->status = $request->status;
-            $sql->name_address_myan = $request->name_address_myan;
-            $sql->ms_no_myan = $request->ms_no_myan;
-            $sql->ms_date_myan = $request->ms_date_myan;
-            $sql->phone_myan = $request->phone_myan;
-            $sql->fax_myan = $request->fax_myan;
-            $sql->nrc_myan = $request->nrc_myan;
-            $sql->business_reg_myan = $request->business_reg_myan;
-            $sql->business_regdate_myan = $request->business_regdate_myan;
-            // $sql->annual_fee = $request->annual_fee;
-            // $sql->exp_date = $request->exp_date;
-            $sql->save();
+            $sql->name = $request->name;
+                $sql->father_name = $request->father_name;
+                $sql->birth_date = $request->birth_date;
+                $sql->birth_place = $request->birth_place;
+                $sql->nationality = $request->nationality;
+                $sql->nrc = $request->nrc;
+                $sql->edu = $request->edu;
+                $sql->occupation = $request->occupation;
+                $sql->resident_no = $request->resident_no;
+                $sql->resident_street = $request->resident_street;
+                $sql->resident_township = $request->resident_township;
+                $sql->resident_city = $request->resident_city;
+                $sql->resident_state = $request->resident_state;
+                $sql->postal_code = $request->postal_code;
+                $sql->phone = $request->phone;
+                $sql->member_id = $request->member_id;
+                $sql->member_type_id = $request->member_type_id;
+                $sql->company_name = $request->company_name;
+                $sql->registration_no_date = $request->registration_no_date;
+                $sql->business_name = $request->business_name;
+                $sql->business_no_date = $request->business_no_date;
+                $sql->paid_capital = $request->paid_capital;
+                $sql->employee_no = $request->employee_no;
+                $sql->contact_person = $request->contact_person;
+                $sql->designaion = $request->designaion;
+                $sql->office_no = $request->office_no;
+                $sql->office_street = $request->office_street;
+                $sql->office_ward = $request->office_ward;
+                $sql->office_township = $request->office_township;
+                $sql->office_city = $request->office_city;
+                $sql->office_state = $request->office_state;
+                $sql->office_phone = $request->office_phone;
+                $sql->fax = $request->fax;
+                $sql->viber = $request->viber;
+                $sql->website = $request->website;
+                $sql->business_type_id = $request->business_type_id;
+                $sql->business_text = $request->business_text;
+                // $sql->contact_person = $request->contact_person;
+                $sql->ms_no = $request->ms_no;
+                $sql->ms_date = $request->ms_date;
+                // $sql->member_type_id = $request->member_type_id;
+                $sql->category_id = $request->category_id;
+                //
+                $sql->business_reg = $request->business_reg;
+                $sql->business_regdate = $request->business_regdate;
+                $sql->company_name_address = $request->company_name_address;
+                $sql->product_item = $request->product_item;
+                // $sql->phone_no = $request->phone_no;
+                // $sql->fax = $request->fax;
+                $sql->email = $request->email;
+                $sql->entrance_fee = $request->entrance_fee;
+                $sql->name_address_myan = $request->name_address_myan;
+                $sql->ms_no_myan = $request->ms_no_myan;
+                $sql->ms_date_myan = $request->ms_date_myan;
+                $sql->phone_myan = $request->phone_myan;
+                $sql->fax_myan = $request->fax_myan;
+                $sql->nrc_myan = $request->nrc_myan;
+                $sql->business_reg_myan = $request->business_reg_myan;
+                $sql->business_regdate_myan = $request->business_regdate_myan;
+                $sql->save();
 
             if($sql)
             {
@@ -311,11 +399,12 @@ class MemberController extends Controller
         $member = Member::find($id);
         $member_types = MemberType::all();
         $categories = Category::all();
+        $business_types = BusinessType::all();
         $today = Carbon::now();
         $annual_fee = AnnualFee::where('member_id',$id)
                                 ->where('exp_date','>',$today)->first();
 
-        return view('backend.members.member_card',compact('member','member_types','categories','annual_fee'));
+        return view('backend.members.member_card',compact('member','member_types','categories','annual_fee','business_types'));
     }
 
     public function memberExport()
@@ -376,5 +465,21 @@ class MemberController extends Controller
         Mail::to($mail)
                 ->send(new MemberMail());
         return redirect()->back()->with('success', 'Sending Mail is successful!');;
+    }
+
+    public function increaseLimit($id)
+    {
+        $member = LimitMembers::find($id);
+        // $userRole = $user->roles->pluck('name','name')->first();
+        return view('backend.members.increase_limit',compact('member'));
+    }
+
+    public function increaseLimitAdd(Request $request,$id)
+    {
+        $member = LimitMembers::find($id);
+        $member->limit_member = $request->limit_member;
+        $member->save();
+
+        return redirect()->route('members.index')->with('success','Limit Increase Successfully.');
     }
 }

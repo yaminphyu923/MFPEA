@@ -47,7 +47,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="" class="col-sm-4 col-md-4 text-md-end text-right"><b>Password</b></label>
+                                <label for=""
+                                    class="col-sm-4 col-md-4 text-md-end text-right"><b>Password</b></label>
                                 <div class="col-sm-6 col-md-6">
                                     <input type="password" name="password" class="form-control" autocomplete="off">
                                 </div>
@@ -57,8 +58,7 @@
                                 <label for="" class="col-sm-4 col-md-4 text-md-end text-right"><b>Confirm
                                         Password</b></label>
                                 <div class="col-sm-6 col-md-6">
-                                    <input type="password" name="confirm-password" class="form-control"
-                                        autocomplete="off">
+                                    <input type="password" name="confirm-password" class="form-control" autocomplete="off">
                                 </div>
                             </div>
 
@@ -68,7 +68,7 @@
                                     <select name="roles[]" id="roles" class="form-control">
                                         <option>Select Option...</option>
                                         @foreach ($roles as $key => $role)
-                                            <option value="{{ $key }}">{{ $key }}</option>
+                                            <option value="{{ $role->name }}">{{ $role->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

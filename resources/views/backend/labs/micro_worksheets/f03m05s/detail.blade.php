@@ -309,11 +309,11 @@
                     @if ($f03m05->analysed_sign != null)
                         <img src="{{ asset('photos/mw_f03m05s/analysed_sign/' . $f03m05->analysed_sign) }}" alt=""
                             style="width:100px;">
-
-                        <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($f03m05->analysed_date)) }}</b></h5>
                     @else
                         <span>____</span>
                     @endif
+                    <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($f03m05->analysed_date)) }}</b></h5>
+
                 </span>
 
             </div>
@@ -324,10 +324,11 @@
                     @if ($f03m05->checked_sign != null)
                         <img src="{{ asset('photos/mw_f03m05s/checked_sign/' . $f03m05->checked_sign) }}" alt=""
                             style="width:100px;">
-                        <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($f03m05->checked_date)) }}</b></h5>
                     @else
                         <span>____</span>
                     @endif
+                    <h5 class="offset-sm-2"><b>{{ date('d-M-Y', strtotime($f03m05->checked_date)) }}</b></h5>
+
                 </span>
 
             </div>

@@ -1,12 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MRs\SacController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MRs\SwabController;
+use App\Http\Controllers\MRs\WjsaController;
 use App\Http\Controllers\Aw\Ad0101Controller;
 use App\Http\Controllers\Aw\Ad0201Controller;
 use App\Http\Controllers\DashboardController;
 use App\Models\StockPurchaseUsedChemicalList;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MRs\ExportController;
 use App\Http\Controllers\Others\F05Controller;
 use App\Http\Controllers\MRs\Ad00084Controller;
 use App\Http\Controllers\MRs\Ad00086Controller;
@@ -28,6 +32,7 @@ use App\Http\Controllers\Oils\F04che11Controller;
 use App\Http\Controllers\Oils\F04che12Controller;
 use App\Http\Controllers\Oils\F04che14Controller;
 use App\Http\Controllers\Member\CategoryController;
+use App\Http\Controllers\MRs\OtherSampleController;
 use App\Http\Controllers\Oils\Fche040108Controller;
 use App\Http\Controllers\Oils\Fche040109Controller;
 use App\Http\Controllers\Oils\Fche040110Controller;
@@ -86,6 +91,7 @@ use App\Http\Controllers\HMMineral\Che040049Controller;
 use App\Http\Controllers\HMMineral\Che040050Controller;
 use App\Http\Controllers\HMMineral\Che040141Controller;
 use App\Http\Controllers\HMMineral\Che040146Controller;
+use App\Http\Controllers\Member\BusinessTypeController;
 use App\Http\Controllers\MRs\MicroTestMethodController;
 use App\Http\Controllers\Nutritions\F04che02Controller;
 use App\Http\Controllers\Nutritions\F04che24Controller;
@@ -110,9 +116,10 @@ use App\Http\Controllers\Oils\F04che12FinanceController;
 use App\Http\Controllers\Oils\F04che14FinanceController;
 use App\Http\Controllers\Stock\MLGeneralStockController;
 use App\Http\Controllers\Stock\StockGlassWareController;
+use App\Http\Controllers\ChemicalReports\OtherController;
 use App\Http\Controllers\ChemicalReports\WaterController;
 use App\Http\Controllers\GCAnalysis\Fche040029Controller;
-use App\Http\Controllers\MicroWorksheet\F03m05Controller;
+use App\Http\Controllers\MicroWorksheet\F03M05Controller;
 use App\Http\Controllers\MicroWorksheet\F03m06Controller;
 use App\Http\Controllers\Nutritions\Fche040101Controller;
 use App\Http\Controllers\Nutritions\Fche040102Controller;
@@ -227,7 +234,7 @@ use App\Http\Controllers\WaterTests\F04che28FinanceController;
 use App\Http\Controllers\Stock\UsedFidslGeneralStockController;
 use App\Http\Controllers\ChemicalReports\GCTestMethodController;
 use App\Http\Controllers\GCAnalysis\Fche040029FinanceController;
-use App\Http\Controllers\MicroWorksheet\F03m05FinanceController;
+use App\Http\Controllers\MicroWorksheet\F03M05FinanceController;
 use App\Http\Controllers\MicroWorksheet\F03m06FinanceController;
 use App\Http\Controllers\Nutritions\Fche040001FinanceController;
 use App\Http\Controllers\Nutritions\Fche040003FinanceController;
@@ -275,6 +282,7 @@ use App\Http\Controllers\AlcoholAnalysis\AlcoholFcar0501Controller;
 use App\Http\Controllers\ChemicalReports\GCTestParameterController;
 use App\Http\Controllers\Stock\PurchaseFidslGeneralStockController;
 use App\Http\Controllers\ChemicalReports\OilTestParameterController;
+use App\Http\Controllers\ChemicalReports\NutritionAnalysisController;
 use App\Http\Controllers\ChemicalReports\WaterTestParameterController;
 use App\Http\Controllers\AlcoholAnalysis\AlcoholFcar0501FinanceController;
 use App\Http\Controllers\ChemicalReports\NutritionTestParameterController;
@@ -311,6 +319,10 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::resource('/members',MemberController::class);
 
+    Route::get('increase_member/{id}',[MemberController::class,'increaseLimit'])->name('increase_member');
+
+    Route::put('increase_member/update/{id}',[MemberController::class,'increaseLimitAdd'])->name('increase_member.update');
+
     Route::get('/search-by-category',[MemberController::class,'searchByCategory'])->name('search-by-category');
 
     Route::get('/member-export',[MemberController::class,'memberExport'])->name('member-export');
@@ -337,6 +349,8 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::resource('/member-types',MemberTypeController::class);
 
+    Route::resource('/business-types',BusinessTypeController::class);
+
     Route::resource('/categories',CategoryController::class);
 
     Route::resource('/groups',GroupController::class);
@@ -345,6 +359,15 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+
+    Route::get('increase_count/{id}',[UserController::class,'increaseCount'])->name('increase_count');
+
+    Route::put('increase_count_add/{id}',[UserController::class,'increaseCountAdd'])->name('increase_count_add');
+
+    Route::get('change_password_page/{id}',[UserController::class,'changePasswordPage'])->name('change_password_page');
+
+    Route::put('change_password/{id}',[UserController::class,'changePassword'])->name('change_password');
+
     Route::resource('permissions', PermissionController::class);
 
     // Admin Worksheet
@@ -559,13 +582,13 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('/m040101-finance/second-add/{id}',[M040101FinanceController::class,'secondAdd'])->name('m040101-finance.secondAdd');
 
-    Route::resource('/f03m05',F03m05Controller::class);
+    Route::resource('/f03m05',F03M05Controller::class);
 
-    Route::get('/f03m05/print/{id}',[F03m05Controller::class, 'print'])->name('f03m05.print');
+    Route::get('/f03m05/print/{id}',[F03M05Controller::class, 'print'])->name('f03m05.print');
 
-    Route::resource('/f03m05-finance',F03m05FinanceController::class);
+    Route::resource('/f03m05-finance',F03M05FinanceController::class);
 
-    Route::get('/f03m05-finance/second-add/{id}',[F03m05FinanceController::class,'secondAdd'])->name('f03m05-finance.secondAdd');
+    Route::get('/f03m05-finance/second-add/{id}',[F03M05Controller::class,'secondAdd'])->name('f03m05-finance.secondAdd');
 
     Route::resource('/f03m06',F03m06Controller::class);
 
@@ -940,25 +963,22 @@ Route::group(['middleware'=>'auth'],function(){
 
     // Chemical Report
 
-    Route::resource('/heavy_metals',HeavyMetalController::class);
 
     Route::resource('/heavy_metal_tests',HeavyMetalTestParameterController::class);
 
-    Route::resource('/gcs',GCController::class);
 
     Route::resource('/gc_test_parameters',GCTestParameterController::class);
 
     Route::resource('/gc_test_methods',GCTestMethodController::class);
 
-    Route::resource('/nutritions',NutritionController::class);
 
     Route::resource('/nutrition_tests',NutritionTestParameterController::class);
 
-    Route::resource('/oils',OilController::class);
+
 
     Route::resource('/oil_tests',OilTestParameterController::class);
 
-    Route::resource('/waters',WaterController::class);
+
 
     Route::resource('/water_tests',WaterTestParameterController::class);
 
@@ -1259,4 +1279,70 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('/fche040064-finance',Fche040064FinanceController::class);
 
     Route::get('/fche040064-finance/second-add/{id}',[Fche040064FinanceController::class,'secondAdd'])->name('fche040064-finance.secondAdd');
+
+    // Chemical Report -> Nutrition Analysis
+
+    Route::resource('/nutritions',NutritionAnalysisController::class);
+
+    Route::get('/nutritions/print/{id}',[NutritionAnalysisController::class, 'print'])->name('nutritions.print');
+
+    // Chemical Report -> Oil
+
+    Route::resource('/oils',OilController::class);
+
+    Route::get('/oils/print/{id}',[OilController::class, 'print'])->name('oils.print');
+
+    // Chemical Report -> Water
+
+    Route::resource('/waters',WaterController::class);
+
+    Route::get('/waters/print/{id}',[WaterController::class, 'print'])->name('waters.print');
+
+    // Chemical Report -> GC
+
+    Route::resource('/gcs',GCController::class);
+
+    Route::get('/gcs/print/{id}',[GCController::class, 'print'])->name('gcs.print');
+
+    // Chemical Report -> Heavy Metal
+
+    Route::resource('/heavy_metals',HeavyMetalController::class);
+
+    Route::get('/heavy_metals/print/{id}',[HeavyMetalController::class, 'print'])->name('heavy_metals.print');
+
+    // Chemical Report -> Other
+
+    Route::resource('/others',OtherController::class);
+
+    Route::get('/others/print/{id}',[OtherController::class, 'print'])->name('others.print');
+
+    // Microbiological Report -> Swab
+
+    Route::resource('/swabs',SwabController::class);
+
+    Route::get('/swabs/print/{id}',[SwabController::class, 'print'])->name('swabs.print');
+
+    // Microbiological Report -> Export
+
+    Route::resource('/exports',ExportController::class);
+
+    Route::get('/exports/print/{id}',[ExportController::class, 'print'])->name('exports.print');
+
+    // Microbiological Report -> Wjsa
+
+    Route::resource('/wjsas',WjsaController::class);
+
+    Route::get('/wjsas/print/{id}',[WjsaController::class, 'print'])->name('wjsas.print');
+
+    // Microbiological Report -> Other Sample
+
+    Route::resource('/other_samples',OtherSampleController::class);
+
+    Route::get('/other_samples/print/{id}',[OtherSampleController::class, 'print'])->name('other_samples.print');
+
+    // Microbiological Report -> Sac
+
+    Route::resource('/sacs',SacController::class);
+
+    Route::get('/sacs/print/{id}',[SacController::class, 'print'])->name('sacs.print');
 });

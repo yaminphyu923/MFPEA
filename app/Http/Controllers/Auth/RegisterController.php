@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Members\BusinessType;
 
 class RegisterController extends Controller
 {
@@ -54,7 +55,8 @@ class RegisterController extends Controller
     {
         $member_types = MemberType::all();
         $categories = Category::all();
-        return view('backend.user_managements.users.register',compact('member_types','categories'));
+        $business_types = BusinessType::all();
+        return view('backend.user_managements.users.register',compact('member_types','categories','business_types'));
     }
 
 

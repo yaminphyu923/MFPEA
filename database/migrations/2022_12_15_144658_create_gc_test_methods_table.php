@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('gc_test_methods', function (Blueprint $table) {
             $table->id();
-            $table->text('name')->fillable();
+            $table->text('name')->nullable();
             $table->timestamps();
         });
     }

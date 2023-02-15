@@ -31,7 +31,7 @@
                             <a href="{{ route('expired-member') }}">
                                 <button type="button" class="btn btn-md btn-primary btn-theme mb-1 px-2"><i
                                         class="fas fa-users"></i>
-                                    <b>Expire</b></button>
+                                    <b>Expired</b></button>
                             </a>
 
                             <button type="button" class="btn btn-md btn-theme btn-primary mb-1 px-2" data-toggle="modal"
@@ -44,16 +44,24 @@
                                     <b>Excel Export</b></button>
                             </a>
 
-                            <a href="{{ route('members.create') }}">
-                                <button type="button" class="btn btn-md btn-primary btn-theme mb-1 px-1"><i
-                                        class="fas fa-user-plus"></i>
-                                    <b>Add Member</b></button>
-                            </a>
+                            @if ($limit->limit_member >= count($members))
+                                <a href="{{ route('members.create') }}">
+                                    <button type="button" class="btn btn-md btn-primary btn-theme mb-1 px-1"><i
+                                            class="fas fa-user-plus"></i>
+                                        <b>Add Member</b></button>
+                                </a>
+                            @endif
 
                             <a href="{{ route('member-types.index') }}">
                                 <button type="button" class="btn btn-md btn-primary btn-theme mb-1 px-1"><i
                                         class="fas fa-plus-circle"></i>
                                     <b>Member Type</b></button>
+                            </a>
+
+                            <a href="{{ route('business-types.index') }}">
+                                <button type="button" class="btn btn-md btn-primary btn-theme mb-1 px-1"><i
+                                        class="fas fa-plus-circle"></i>
+                                    <b>Business Type</b></button>
                             </a>
 
                             <a href="{{ route('categories.index') }}">
@@ -67,6 +75,13 @@
                                         class="fas fa-plus-circle"></i>
                                     <b>Group</b></button>
                             </a>
+
+                            @if (auth()->user()->getRoleNames()[0] == 'Superadmin')
+                                <a href="{{ route('increase_member', $limit->id) }}"><button type="button"
+                                        class="btn btn-md btn-info btn-theme mb-1 px-1"><i
+                                            class="fas fa-sort-numeric-up"></i>
+                                        Increase Limit</button></a>
+                            @endif
                         </div>
                     </div>
                 </div>

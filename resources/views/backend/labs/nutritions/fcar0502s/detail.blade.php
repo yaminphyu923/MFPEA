@@ -212,7 +212,7 @@
                                 <h4>{{ $car->protein_fact }} g</h4>
                                 <h4>{{ $car->fat_fact }} g</h4>
                                 <h4>{{ $car->carbo_fact }} g</h4>
-                                <h4>{{ $car->sodium_fact }} g or mg</h4>
+                                <h4>{{ $car->na_fact }} g or mg</h4>
                             </div>
                         </div>
                     </div>

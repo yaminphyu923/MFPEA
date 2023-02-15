@@ -13,18 +13,24 @@
                 <div class="card mb-3 card-button">
                     <div class="card-header d-flex justify-content-between">
                         <h4 class="mt-2"><b>Nutrition Analysis</b></h4>
-                        <a href="{{ route('nutrition_tests.index') }}">
+                        {{-- <a href="{{ route('nutrition_tests.index') }}">
                             <button type="button" class="btn btn-md btn-primary"><b>Nutrition Analysis Test
                                     Parameter</b></button>
+                        </a> --}}
+
+                        <a href="{{ route('nutritions.create') }}">
+                            <button type="button" class="btn btn-md btn-primary"><i class="fas fa-hand-point-left"></i>
+                                <b>Back</b></button>
                         </a>
                     </div>
                 </div>
 
-                {{-- <div class="table-responsive">
+                <div class="table-responsive">
                     <table class="datatable table table-stripped table-hover">
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th>No.</th>
+                                <th>Title</th>
                                 <th>Company Name</th>
                                 <th>Lab Received Date</th>
                                 <th>Product Name</th>
@@ -33,35 +39,36 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($ad00879s as $ad)
+                            @foreach ($nutritions as $nutrition)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $ad->company_name }}</td>
-                                    <td>{{ date('d-M-Y', strtotime($ad->lab_received_date)) }}</td>
-                                    <td>{{ $ad->product_name }}</td>
-                                    <td>{{ $ad->phone }}</td>
+                                    <td>{{ $nutrition->title }}</td>
+                                    <td>{{ $nutrition->company_name }}</td>
+                                    <td>{{ date('d-M-Y', strtotime($nutrition->lab_received_date)) }}</td>
+                                    <td>{{ $nutrition->product_name }}</td>
+                                    <td>{{ $nutrition->phone }}</td>
                                     <td class="d-flex justify-content-start">
-                                        <a href="{{ route('ad00879.show', $ad->id) }}"><button type="button"
+                                        <a href="{{ route('nutritions.show', $nutrition->id) }}"><button type="button"
                                                 class="btn btn-sm btn-primary py-2"><i class="fas fa-eye"></i>
                                                 Detail</button></a>
-                                        <a href="{{ route('ad00879.print', $ad->id) }}"><button type="button"
+                                        <a href="{{ route('nutritions.print', $nutrition->id) }}"><button type="button"
                                                 class="btn btn-sm btn-success py-2"><i class="fas fa-print"></i>
                                                 Report</button></a>
-                                        <a href="{{ route('ad00879.edit', $ad->id) }}"><button type="button"
+                                        <a href="{{ route('nutritions.edit', $nutrition->id) }}"><button type="button"
                                                 class="btn btn-sm btn-warning py-2"><i class="fas fa-edit"></i>
                                                 Edit</button></a>
-                                        <form action="{{ route('ad00879.destroy', $ad->id) }}" method="post">
+                                        <form action="{{ route('nutritions.destroy', $nutrition->id) }}" method="post">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button type="submit" class="btn btn-sm btn-danger py-2 delete"
-                                                id="{{ $ad->id }}"><i class="fas fa-trash"></i> Delete</button>
+                                                id="{{ $nutrition->id }}"><i class="fas fa-trash"></i> Delete</button>
                                         </form>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>

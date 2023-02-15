@@ -27,12 +27,19 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = Role::all();
+        $auth_role_name = auth()->user()->getRoleNames();
+        if($auth_role_name[0] == 'Superadmin')
+        {
+            $roles = Role::all();
+        }else{
+            $roles = Role::where('name','!=','Superadmin')->get();
+        }
+
         return view('backend.user_managements.roles.index',compact('roles'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource
      *
      * @return \Illuminate\Http\Response
      */

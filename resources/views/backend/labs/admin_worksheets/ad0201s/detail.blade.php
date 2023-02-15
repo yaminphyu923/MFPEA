@@ -36,6 +36,7 @@
             <div class="col-sm-4">
                 <ol>
                     <li>Job Number</li>
+                    <li>Customer Name</li>
                     <li>Sample Name I Code</li>
                     <li>Sample Description</li>
                     <ul style="list-style-type:square">
@@ -60,6 +61,7 @@
             <div class="col-sm-8">
                 <ul class="list-unstyled">
                     <li>: {{ $ad->job_number != null ? $ad->job_number : '-' }}</li>
+                    <li>: {{ $ad->customer_id != null ? $ad->customer_id : '-' }}</li>
                     <li>: {{ $ad->sample_name_code != null ? $ad->sample_name_code : '-' }}</li>
                     <li>: {{ $ad->sample_description != null ? $ad->sample_description : '-' }}</li>
                     <li>: {{ $ad->sample_type != null ? $ad->sample_type : '-' }}</li>
