@@ -974,8 +974,6 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::resource('/nutrition_tests',NutritionTestParameterController::class);
 
-
-
     Route::resource('/oil_tests',OilTestParameterController::class);
 
 

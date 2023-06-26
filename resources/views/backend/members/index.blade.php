@@ -194,7 +194,7 @@
                                     </td>
                                     <td>{{ $member->company_name_address }}</td>
                                     {{-- <td>{{ $member->product_item }}</td> --}}
-                                    <td>{{ $member->phone_no }}</td>
+                                    <td>{{ $member->phone }}</td>
                                     {{-- <td>{{ $member->fax }}</td> --}}
                                     <td>{{ $member->email }}</td>
                                     <td class="d-flex justify-content-evenly">

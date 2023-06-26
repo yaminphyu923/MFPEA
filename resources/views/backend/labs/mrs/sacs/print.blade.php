@@ -92,8 +92,8 @@
                 <th>Test Parameter</th>
                 <th>Test Method</th>
                 <th>Result</th>
-                <th>Before Result</th>
-                <th>After Result</th>
+                <th>Reference Range</th>
+                <th>Reference Standard</th>
             </tr>
         </thead>
 
@@ -186,7 +186,7 @@
 
         <div class="sign" style="flex-grow: 6">
             <img src="{{ asset('photos/mr_sacs/' . $sac->sign) }}" alt="" style="width:100px;">
-            <h4><b>{{ $sac->date ? date('d-M-Y', strtotime($sac->date)) : '-' }}</b><br></b></h4>
+            {{-- <h4><b>{{ $sac->date ? date('d-M-Y', strtotime($sac->date)) : '-' }}</b><br></b></h4> --}}
             <h4><b>{{ $sac->checked_name != null ? $sac->checked_name : '' }}</b></h4>
             <h4><b>{{ $sac->position }}</b></h4>
         </div>

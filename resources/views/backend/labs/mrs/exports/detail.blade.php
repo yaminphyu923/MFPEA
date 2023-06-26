@@ -97,8 +97,8 @@
                             <th>Test Parameter</th>
                             <th>Test Method</th>
                             <th>Result</th>
-                            <th>Before Result</th>
-                            <th>After Result</th>
+                            <th>Reference Range</th>
+                            <th>Reference Standard</th>
                         </tr>
                     </thead>
 

@@ -301,7 +301,7 @@
                     and
                     Essential
                     Minerals Test Report</a>
-                <a href="#" class="dropdown-item">Other Test Report</a>
+                <a href="{{ route('others.create') }}" class="dropdown-item @yield('other-active')">Other Test Report</a>
                 {{-- <a class="dropdown-item @yield('ad01341-active')"
                     href="{{ route('ad01341s.create') }}">FIDSL-Ad-06-03-01341/22</a>
                     {{ route('others.create') }}

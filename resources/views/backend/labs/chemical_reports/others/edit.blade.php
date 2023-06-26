@@ -234,7 +234,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6 my-0">
+                                    {{-- <div class="col-sm-6 my-0">
                                         <div class="form-group row">
                                             <label for="" class="col-sm-4">Date</label>
 
@@ -243,7 +243,7 @@
                                                     value="{{ $other->date }}">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-sm-6 my-0">
                                         <div class="form-group row">

@@ -80,8 +80,8 @@
                             <th>Test Parameter</th>
                             <th>Test Method</th>
                             <th>Result</th>
-                            <th>Before Result</th>
-                            <th>After Result</th>
+                            <th>Reference Range</th>
+                            <th>Reference Standard</th>
                         </tr>
                     </thead>
 
@@ -173,7 +173,7 @@
             <div class="col-sm-6 my-3 text-center">
                 <span><img src="{{ asset('photos/mr_other_samples/' . $other_sample->sign) }}" alt=""
                         style="width:100px;"></span><br>
-                <span>{{ $other_sample->date ? date('d-M-Y', strtotime($other_sample->date)) : '-' }}</b></span><br>
+                {{-- <span>{{ $other_sample->date ? date('d-M-Y', strtotime($other_sample->date)) : '-' }}</b></span><br> --}}
 
                 <span>{{ $other_sample->checked_name }}</b></span><br>
 

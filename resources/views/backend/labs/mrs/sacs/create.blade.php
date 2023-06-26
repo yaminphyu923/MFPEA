@@ -177,7 +177,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">Before Result</label>
+                                                <label for="" class="col-sm-4">Reference Range</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="apc_before" class="form-control">
@@ -187,7 +187,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">After Result</label>
+                                                <label for="" class="col-sm-4">Reference Standard</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="apc_after" class="form-control">
@@ -229,7 +229,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">Before Result</label>
+                                                <label for="" class="col-sm-4">Reference Range</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="coliform_before" class="form-control">
@@ -239,7 +239,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">After Result</label>
+                                                <label for="" class="col-sm-4">Reference Standard</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="coliform_after" class="form-control">
@@ -281,7 +281,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">Before Result</label>
+                                                <label for="" class="col-sm-4">Reference Range</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="coli_before" class="form-control">
@@ -291,7 +291,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">After Result</label>
+                                                <label for="" class="col-sm-4">Reference Standard</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="coli_after" class="form-control">
@@ -333,7 +333,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">Before Result</label>
+                                                <label for="" class="col-sm-4">Reference Range</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="staphy_before" class="form-control">
@@ -343,7 +343,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">After Result</label>
+                                                <label for="" class="col-sm-4">Reference Standard</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="staphy_after" class="form-control">
@@ -384,7 +384,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">Before Result</label>
+                                                <label for="" class="col-sm-4">Reference Range</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="salmo_before" class="form-control">
@@ -394,7 +394,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">After Result</label>
+                                                <label for="" class="col-sm-4">Reference Standard</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="salmo_after" class="form-control">
@@ -436,7 +436,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">Before Result</label>
+                                                <label for="" class="col-sm-4">Reference Range</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="yeast_mould_before" class="form-control">
@@ -446,7 +446,7 @@
 
                                         <div class="col-sm-2 my-0">
                                             <div class="form-group row">
-                                                <label for="" class="col-sm-4">After Result</label>
+                                                <label for="" class="col-sm-4">Reference Standard</label>
 
                                                 <div class="col-sm-8">
                                                     <input type="text" name="yeast_mould_after" class="form-control">
@@ -486,7 +486,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6 my-0">
+                                    {{-- <div class="col-sm-6 my-0">
                                         <div class="form-group row">
                                             <label for="" class="col-sm-4">Date</label>
 
@@ -494,7 +494,7 @@
                                                 <input type="date" name="date" class="form-control">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-sm-6 my-0">
                                         <div class="form-group row">

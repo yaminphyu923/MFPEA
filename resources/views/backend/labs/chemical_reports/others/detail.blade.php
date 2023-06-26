@@ -123,7 +123,7 @@
             <div class="col-sm-6 my-3 text-center">
                 <span><img src="{{ asset('photos/cr_others/' . $other->sign) }}" alt=""
                         style="width:100px;"></span><br>
-                <span>{{ $other->date ? date('d-M-Y', strtotime($other->date)) : '-' }}</b></span><br>
+                {{-- <span>{{ $other->date ? date('d-M-Y', strtotime($other->date)) : '-' }}</b></span><br> --}}
 
                 <span>{{ $other->checked_name }}</b></span><br>
 
