@@ -132,13 +132,13 @@
         </div>
 
         <div style="flex-grow: 1">
-            <h4>Signature</h4>
-            <h4>Name</h4>
+            <h4>Customer Name and Sign</h4>
+            <h4></h4>
         </div>
 
         <div class="sign" style="flex-grow: 3">
-            : <img src="{{ asset('photos/aw0101s/' . $ad->signature) }}" alt="" style="width:100px;">
-            <h4>: <b>{{ $ad->name != null ? $ad->name : '' }}</b></h4>
+            : <img src="{{ asset('photos/aw0101s/' . $ad->cus_sign) }}" alt="" style="width:100px;">
+            <h4> <b>{{ $ad->customer_id != null ? $ad->customer_id : '' }}</b></h4>
         </div>
 
     </div>

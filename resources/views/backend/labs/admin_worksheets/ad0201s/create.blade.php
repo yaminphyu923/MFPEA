@@ -41,22 +41,16 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6 my-0">
+                                {{-- <div class="col-sm-6 my-0">
                                     <div class="form-group row">
                                         <label for="" class="col-sm-4">Customer Name</label>
 
                                         <div class="col-sm-8">
                                             <input type="text" name="customer_id" class="form-control"
                                                 autocomplete="off">
-                                            {{-- <select name="customer_id" class="form-control myselect">
-                                                <option>Select an option...</option>
-                                                @foreach ($customers as $customer)
-                                                    <option value="{{ $customer->id }}">{{ $customer->name }}</option>
-                                                @endforeach
-                                            </select> --}}
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-sm-6 my-0">
                                     <div class="form-group row">

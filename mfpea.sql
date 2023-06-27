@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 06:30 AM
+-- Generation Time: Jun 27, 2023 at 09:56 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -334,6 +334,7 @@ CREATE TABLE `ad0101s` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `company_name` text DEFAULT NULL,
   `customer_id` text DEFAULT NULL,
+  `cus_sign` text DEFAULT NULL,
   `address` longtext DEFAULT NULL,
   `contact_person` text DEFAULT NULL,
   `sample_name_code` text DEFAULT NULL,
@@ -362,9 +363,9 @@ CREATE TABLE `ad0101s` (
 -- Dumping data for table `ad0101s`
 --
 
-INSERT INTO `ad0101s` (`id`, `company_name`, `customer_id`, `address`, `contact_person`, `sample_name_code`, `sample_description`, `package_type`, `request_type`, `sampling_procedure`, `decision_rule`, `test_method`, `sample_quantity`, `tf_received_date`, `sample_received_date`, `sample_number`, `received_quality`, `temperature_sa`, `physical_sp`, `lab_report_date`, `job_number`, `signature`, `name`, `created_at`, `updated_at`) VALUES
-(4, 'fidsl-ad-01-01', '7', 'Yangon', 'Lin', '001', 'Liquid', 'Paste', 'Survey', 'Not-Submitted', 'Request', 'FIDSL', '20', '2022-08-01', '2022-08-01', '001', 'rquality', 'tem', 'physical condition', '2022-08-01', '001', '1659339035_sign-white.png', 'Hlaing', '2022-08-01 01:00:35', '2022-08-01 01:01:36'),
-(8, 'loewm', 'lorem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-06 03:20:46', '2023-02-06 03:20:46');
+INSERT INTO `ad0101s` (`id`, `company_name`, `customer_id`, `cus_sign`, `address`, `contact_person`, `sample_name_code`, `sample_description`, `package_type`, `request_type`, `sampling_procedure`, `decision_rule`, `test_method`, `sample_quantity`, `tf_received_date`, `sample_received_date`, `sample_number`, `received_quality`, `temperature_sa`, `physical_sp`, `lab_report_date`, `job_number`, `signature`, `name`, `created_at`, `updated_at`) VALUES
+(4, 'fidsl-ad-01-01', 'Yan Yan', '1687851688_loupe.png', 'Yangon', 'Lin', '001', 'Liquid', 'Paste', 'Survey', 'Not-Submitted', 'Request', 'FIDSL', '20', '2022-08-01', '2022-08-01', '001', 'rquality', 'tem', 'physical condition', '2022-08-01', '001', '1659339035_sign-white.png', 'Hlaing', '2022-08-01 01:00:35', '2023-06-27 01:11:28'),
+(8, 'loewm', 'lorem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-06 03:20:46', '2023-02-06 03:20:46');
 
 -- --------------------------------------------------------
 
@@ -1056,7 +1057,8 @@ INSERT INTO `annual_fees` (`id`, `member_id`, `annual_fee`, `exp_date`, `created
 (10, '10', '30000', '2023-07-08', '2022-07-08 01:15:06', '2022-07-08 01:17:03'),
 (18, '18', '1000', '2022-09-29', '2022-09-27 07:34:45', '2022-09-28 09:37:47'),
 (19, '18', '2000', '2024-12-27', '2022-09-27 07:34:45', '2022-09-28 09:37:47'),
-(22, '21', '200', '2024-10-15', '2022-09-27 08:45:12', '2022-09-27 08:45:12');
+(22, '21', '200', '2024-10-15', '2022-09-27 08:45:12', '2022-09-27 08:45:12'),
+(32, '36', NULL, NULL, '2023-06-26 01:45:56', '2023-06-26 01:45:56');
 
 -- --------------------------------------------------------
 
@@ -7968,7 +7970,8 @@ INSERT INTO `members` (`id`, `contact_person`, `ms_no`, `ms_date`, `member_type_
 (9, 'Min Min', '002', '2022-07-08', '3', '9', '12/Min(N)000000', '002', '2022-07-08', 'Min', 'Product', '09799', '-', 'yaminphyummcities@gmail.com', '1000', NULL, NULL, '1657266125_millennial.png', '1', 'Yangon', '၀၀၁', '၇-၈-၂၀၂၂', '၀၉၇၉၉', NULL, NULL, NULL, NULL, '2022-07-08 01:12:06', '2022-07-09 03:32:44', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (10, 'Lorem', 'CTN-003', '2022-07-08', '3', '7', '12/LOR(N)111111', '003', '2022-07-08', 'Myanmar', 'lorem', '09123123', NULL, 'lorem@gmail.com', '10000', NULL, NULL, '1657266306_woman.png', '1', 'Lorem', '003', NULL, NULL, NULL, NULL, NULL, NULL, '2022-07-08 01:15:06', '2022-07-08 01:16:42', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (18, 'Test', '001', '2022-09-27', '2', '7', '12/TEST(N)123456', 'business', '2022-09-27', 'company name', 'product item', '0979991231', 'fax', 'yaminphyummcities@gmail.com', '10000', NULL, NULL, '1664287485_woman.png', '1', 'test', '၀၀၁', '၂၇-၉-၂၀၂၀', '၀၉၇၉၉၉၁၂၃၁', 'ဖက်စ်', '၁၂/တအစ(နိုင်)၁၂၃၄၅၆', '၀၀၁', '၂၇-၉-၂၀၂၀', '2022-09-27 07:34:45', '2022-09-28 09:37:47', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(21, 'Ni', '000', NULL, '1', '7', NULL, NULL, NULL, 'ni', 'ni', '09', 'fax', 'ni@gmail.com', '100', NULL, NULL, '1664291712_user.png', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-27 08:45:12', '2022-10-18 02:31:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(21, 'Ni', '000', NULL, '1', '7', NULL, NULL, NULL, 'ni', 'ni', '09', 'fax', 'ni@gmail.com', '100', NULL, NULL, '1664291712_user.png', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-27 08:45:12', '2022-10-18 02:31:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(36, NULL, NULL, NULL, 'Select an option...', 'Select an option...', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-06-26 01:45:56', '2023-06-26 01:45:56', 'AA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '09123123123123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Select an option...', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8804,6 +8807,13 @@ CREATE TABLE `others` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `others`
+--
+
+INSERT INTO `others` (`id`, `title`, `company_name`, `address`, `phone`, `lab_received_date`, `sample_number`, `product_name`, `test_performed_date`, `test_type`, `issue_date`, `results`, `method`, `sign`, `date`, `checked_name`, `position`, `created_at`, `updated_at`) VALUES
+(3, 'Other dfa', 'Company', 'address', 'phone', '2023-03-01', '011', 'f', '2023-03-01', 'gfs', '2023-03-01', 'fgs', 'fdgsg', '1677681415_sign-white.png', NULL, 'dfaf', 'dfafd', '2023-03-01 08:06:55', '2023-03-01 08:08:18');
+
 -- --------------------------------------------------------
 
 --
@@ -8877,6 +8887,14 @@ CREATE TABLE `other_tests` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `other_tests`
+--
+
+INSERT INTO `other_tests` (`id`, `other_id`, `test_parameter`, `test_method`, `result`, `created_at`, `updated_at`) VALUES
+(3, '3', '1', '1', '1', '2023-03-01 08:06:55', '2023-03-01 08:08:18'),
+(4, '3', '2', '2', '2', '2023-03-01 08:06:55', '2023-03-01 08:08:18');
 
 -- --------------------------------------------------------
 
@@ -12224,7 +12242,7 @@ ALTER TABLE `ad00879_tests`
 -- AUTO_INCREMENT for table `ad0101s`
 --
 ALTER TABLE `ad0101s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ad01087s`
@@ -12380,7 +12398,7 @@ ALTER TABLE `ad0201s`
 -- AUTO_INCREMENT for table `ad_finances`
 --
 ALTER TABLE `ad_finances`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `alcohol_fcar0501s`
@@ -12398,7 +12416,7 @@ ALTER TABLE `alcohol_fcar0501_finances`
 -- AUTO_INCREMENT for table `annual_fees`
 --
 ALTER TABLE `annual_fees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `business_types`
@@ -13610,7 +13628,7 @@ ALTER TABLE `m040101_s`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `member_types`
@@ -13694,7 +13712,7 @@ ALTER TABLE `oil_test_parameters`
 -- AUTO_INCREMENT for table `others`
 --
 ALTER TABLE `others`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `other_samples`
@@ -13706,7 +13724,7 @@ ALTER TABLE `other_samples`
 -- AUTO_INCREMENT for table `other_tests`
 --
 ALTER TABLE `other_tests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `permissions`

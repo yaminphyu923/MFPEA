@@ -70,6 +70,14 @@ class Ad0101Controller extends Controller
 
                 $ad->signature = $filename;
             }
+            if($request->file("cus_sign")) {
+                $cus_file=$request->file("cus_sign");
+                $cus_filename = time().'_'.$cus_file->getClientOriginalName();
+                $path=public_path('photos/aw0101s');
+                $cus_file->move($path, $cus_filename);
+
+                $ad->cus_sign = $cus_filename;
+            }
 
             $ad->company_name = $request->company_name;
             $ad->customer_id = $request->customer_id;
@@ -167,6 +175,14 @@ class Ad0101Controller extends Controller
                 }
             }
 
+            if($ad->cus_sign != null && $request->file("cus_sign")){
+                if(file_exists(public_path('photos/aw0101s/'.$ad->cus_sign))){
+
+                    unlink('photos/aw0101s/'.$ad->cus_sign);
+
+                }
+            }
+
             if($request->file("signature")) {
                 $file=$request->file("signature");
                 $filename = time().'_'.$file->getClientOriginalName();
@@ -174,6 +190,15 @@ class Ad0101Controller extends Controller
                 $file->move($path, $filename);
 
                 $ad->signature = $filename;
+            }
+
+            if($request->file("cus_sign")) {
+                $cus_file=$request->file("cus_sign");
+                $cus_filename = time().'_'.$cus_file->getClientOriginalName();
+                $path=public_path('photos/aw0101s');
+                $cus_file->move($path, $cus_filename);
+
+                $ad->cus_sign = $cus_filename;
             }
 
             $ad->company_name = $request->company_name;
@@ -219,6 +244,14 @@ class Ad0101Controller extends Controller
             if(file_exists(public_path('photos/aw0101s/'.$ad->signature))){
 
                 unlink('photos/aw0101s/'.$ad->signature);
+
+            }
+        }
+
+        if($ad->cus_sign != null){
+            if(file_exists(public_path('photos/aw0101s/'.$ad->cus_sign))){
+
+                unlink('photos/aw0101s/'.$ad->cus_sign);
 
             }
         }

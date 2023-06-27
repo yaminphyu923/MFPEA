@@ -15,6 +15,7 @@ class Ad0101 extends Model
     protected $fillable = [
         'company_name',
         'customer_id',
+        'cus_sign',
         'address',
         'contact_person',
         'sample_name_code',

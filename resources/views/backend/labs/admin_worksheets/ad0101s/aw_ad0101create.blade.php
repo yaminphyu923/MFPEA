@@ -56,6 +56,18 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-sm-6 my-0">
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-4">Customer's Signature</label>
+
+                                        <div class="col-sm-8">
+                                            <input type="file" name="cus_sign" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 <div class="col-sm-6 my-0">
                                     <div class="form-group row">
                                         <label for="" class="col-sm-4">Address</label>
