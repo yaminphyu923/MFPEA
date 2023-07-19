@@ -22,6 +22,7 @@
                         <thead class="btn-theme text-white">
                             <tr>
                                 <th>No.</th>
+                                <th>Sample Number</th>
                                 <th>Job Number</th>
                                 <th>Company</th>
                                 <th>Contact</th>
@@ -38,6 +39,7 @@
                             @foreach ($ad_finances as $ad_finance)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
+                                    <td>{{ $ad_finance->ad0101 != null ? $ad_finance->ad0101->sample_number : '-' }}</td>
                                     <td>{{ $ad_finance->ad0101 != null ? $ad_finance->ad0101->job_number : '-' }}</td>
                                     <td>{{ $ad_finance->ad0101 != null ? $ad_finance->ad0101->company_name : '-' }}</td>
                                     <td>{{ $ad_finance->ad0101 != null ? $ad_finance->ad0101->contact_person : '-' }}</td>
